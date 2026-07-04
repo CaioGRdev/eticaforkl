@@ -1,45 +1,60 @@
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 export default function Header() {
+  const location = useLocation();
+
+  // Configuração dos links para evitar repetição de código
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "Quem Somos", path: "/quem-somos" },
+    { name: "Serviços", path: "/servicos" },
+    { name: "Viagens", path: "/viagens" },
+    { name: "Contato", path: "/contato" },
+  ];
+
   return (
-    <header className="bg-white w-full h-20 shadow-[0_4px_12px_rgba(0,0,0,0.08)] border-b border-gray-100 px-6 md:px-12 flex items-center justify-between">
-      {/* Container que segura tudo e espalha os elementos */}
+    <header className="fixed top-0 left-0 w-full h-20 bg-white shadow-[0_2px_10px_rgba(0,0,0,0.04)] z-50 px-6 md:px-16 flex items-center justify-between border-b border-gray-100">
+      {/* Container interno centralizado */}
       <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
         
         {/* Lado Esquerdo: Logo + Nome */}
-        <Link to="/" className="flex items-center gap-3" aria-label="Ir para a página inicial">
+        <NavLink to="/" className="flex items-center gap-3" aria-label="Ir para a página inicial">
           <img src="/logo.png" alt="Logo" className="h-8 w-auto" />
-          <span className="text-[#0B1B3D] text-2xl font-black tracking-tight flex items-center gap-1">
+          <span className="text-[#001552] text-2xl font-black tracking-tight">
             Ética<span className="text-[#FF8D5C]">.</span>Jr
           </span>
-        </Link>
+        </NavLink>
 
-        {/* Centro: Links de Navegação */}
-        <nav className="flex items-center gap-8 text-[#2D3748] font-medium text-base">
-          <Link to="/servicos" className="hover:text-[#FF8D5C] transition-colors">
-            Serviços
-          </Link>
-
-          <Link to="/viagens" className="hover:text-[#FF8D5C] transition-colors">
-            Viagens
-          </Link>
-
-          <Link to="/quem-somos" className="hover:text-[#FF8D5C] transition-colors">
-            Quem Somos
-          </Link>
-
-          <Link to="/contato" className="text-[#FF8D5C] font-semibold hover:opacity-80 transition-opacity">
-            Contato
-          </Link>
+        {/* Centro: Links de Navegação com Hover e Estado Ativo */}
+        <nav className="flex items-center gap-8 text-[#4A5568] font-medium text-sm h-20">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.path}
+              to={link.path}
+              className={({ isActive }) => `
+                relative flex items-center h-full text-sm font-semibold transition-all duration-300 pb-1
+                ${isActive 
+                  ? "text-[#FF8D5C] after:w-full" 
+                  : "text-[#4A5568] hover:text-[#FF8D5C] after:w-0"
+                }
+                /* Efeito da bordinha subindo/expandindo embaixo ao passar o mouse ou ativo */
+                after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[3px] 
+                after:bg-[#FF8D5C] after:transition-all after:duration-300 hover:after:w-full
+              `}
+              // end garante que a Home não fique marcada ativa junto com outras sub-rotas
+              end={link.path === "/"}
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </nav>
 
-        {/* Lado Direito: Botão com Ícone de Telefone em SVG nativo */}
-        <button className="bg-[#FF8D5C] text-white font-bold px-6 py-3 rounded-xl flex items-center gap-2 shadow-[0_4px_14px_rgba(255,141,92,0.4)] hover:bg-[#e07b4f] transition-all transform hover:-translate-y-0.5">
-          {/* Ícone de Telefone SVG para não precisar instalar nada */}
+        {/* Lado Direito: Botão com o tom exato de laranja e texto escuro */}
+        <button className="bg-[#FF8D5C] text-[#001552] font-bold text-sm px-6 py-3 rounded-xl flex items-center gap-2 shadow-[0_4px_12px_rgba(255,141,92,0.25)] hover:brightness-105 hover:scale-[1.02] transition-all">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            width="18" 
-            height="18" 
+            width="16" 
+            height="16" 
             viewBox="0 0 24 24" 
             fill="none" 
             stroke="currentColor" 

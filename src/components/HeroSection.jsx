@@ -1,11 +1,12 @@
 export default function HeroSection() {
   return (
     <section className="relative bg-[#001552] text-white min-h-[85vh] flex items-center px-6 md:px-16 overflow-hidden">
-      {/* Imagem de fundo com opacidade/overlay azul para dar o efeito do print */}
-      <div className="absolute inset-0 z-0 opacity-20 mix-blend-overlay">
+      
+      {/* Container da imagem com opacidade reduzida para o azul ficar muito fraco */}
+      <div className="absolute inset-0 z-0 opacity-50">
         <img 
-          src="/images/hero-bg.jpg" // Troque pelo caminho da sua imagem de reunião
-          alt="Background" 
+          src="/predios 2.png" 
+          alt="Background Prédios" 
           className="w-full h-full object-cover"
         />
       </div>
