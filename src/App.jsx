@@ -4,23 +4,24 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import QuemSomos from './pages/QuemSomos';
+import Servicos from './pages/Servicos'; 
+import DetalheServico from './pages/DetalheServico';
 
-function App() {
+import ScrollToTop from './components/ScrollToTop';
 
+export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quem-somos" element={<QuemSomos />} />
-        <Route path="/servicos"/>
-        <Route path="/contato"/>
+        <Route path="/servicos" element={<Servicos />} />
+        <Route path="/servicos/:id" element={<DetalheServico />} />
+        <Route path="/contato" element={<div>Página de Contato</div>} />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   )
 }
-
-export default App
