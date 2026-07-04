@@ -6,10 +6,11 @@ import CTASection from "../components/CTASection.jsx";
 
 export default function Home() {
   return (
-    <main>
+    // Adicionei o className="pt-20" aqui para a HeroSection não sumir embaixo do Header fixo
+    <main className="pt-20"> 
       <HeroSection />
-      <PartnersSection />
       <AboutSection />
+      <PartnersSection />
       <StatsSection />
       <CTASection />
     </main>

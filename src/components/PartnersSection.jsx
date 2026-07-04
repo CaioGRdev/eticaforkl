@@ -1,77 +1,24 @@
-import Reveal from "./Reveal";
-
-const partners = [
-  {
-    name: "Google",
-    logo: "/partners/google.png",
-    url: "https://google.com",
-  },
-  {
-    name: "Microsoft",
-    logo: "/partners/microsoft.png",
-    url: "https://microsoft.com",
-  },
-  {
-    name: "Amazon",
-    logo: "/partners/amazon.png",
-    url: "https://amazon.com",
-  },
-  {
-    name: "Meta",
-    logo: "/partners/meta.png",
-    url: "https://meta.com",
-  },
-];
-
 export default function PartnersSection() {
+  const partners = ["Voitto", "TechCorp", "InovaLab", "MetalRio", "EcoIndústria", "GrupoRJ"];
+
   return (
-    <section
-      className="py-24 bg-white"
-      aria-labelledby="parcerias"
-    >
-      <Reveal>
-        <div className="max-w-7xl mx-auto px-6">
-
-          <h2
-            id="parcerias"
-            className="text-4xl font-bold text-center text-[#00095C]"
-          >
-            Nossos Parceiros
-          </h2>
-
-          <p className="text-center mt-4 text-gray-600">
-            Construindo resultados junto de grandes organizações.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mt-14">
-
-            {partners.map((partner) => (
-              <a
-                key={partner.name}
-                href={partner.url}
-                target="_blank"
-                rel="noreferrer"
-                className="
-                  p-6
-                  rounded-xl
-                  border
-                  hover:shadow-xl
-                  hover:-translate-y-2
-                  transition-all
-                "
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-16 mx-auto object-contain"
-                />
-              </a>
-            ))}
-
-          </div>
-
+    <section className="bg-white py-16 px-6 md:px-16 text-center">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-[#001552] text-3xl font-black mb-2">Quem confia em nós</h2>
+        <p className="text-gray-500 font-medium text-sm mb-10">Parceiros e clientes que caminham conosco</p>
+        
+        {/* Grid de logos em formato de cards brancos arredondados */}
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-4 max-w-5xl mx-auto">
+          {partners.map((partner, index) => (
+            <div 
+              key={index} 
+              className="bg-white border border-gray-100 shadow-[0_4px_12px_rgba(0,0,0,0.03)] py-4 px-6 rounded-xl flex items-center justify-center font-bold text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              {partner}
+            </div>
+          ))}
         </div>
-      </Reveal>
+      </div>
     </section>
   );
 }
