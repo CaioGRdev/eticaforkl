@@ -1,0 +1,232 @@
+:root {
+  --azul-profundo: #00063D;
+  --azul-vibrante: #1B00BE;
+  --laranja-destaque: #FF935E;
+  --laranja-hover: #e07b46;
+  --bg-cinza-claro: #F4F6FA;
+  --branco: #FFFFFF;
+}
+
+.detalhe-servico-container {
+  min-height: 100vh;
+  background-color: var(--bg-cinza-claro);
+  font-family: sans-serif;
+  color: #333333;
+}
+
+/* Hero Section alinhada com as outras páginas */
+.detalhe-hero {
+  background: linear-gradient(135deg, #00063D 0%, #000D85 100%);
+  color: var(--branco);
+  text-align: center;
+  padding: 6rem 1.5rem;
+}
+
+.detalhe-badge {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--branco);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 1.2rem;
+  border-radius: 9999px;
+  margin-bottom: 1.5rem;
+}
+
+.detalhe-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .detalhe-hero h1 { font-size: 3.5rem; }
+}
+
+.detalhe-hero h1 span {
+  color: var(--laranja-destaque);
+}
+
+.detalhe-hero-desc {
+  color: #cbd5e1;
+  font-size: 1.125rem;
+  max-width: 38rem;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Seção de Conteúdo Principal */
+.detalhe-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .detalhe-content {
+    grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+.detalhe-main-text h2 {
+  font-size: 1.75rem;
+  color: var(--azul-profundo);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.detalhe-main-text p {
+  color: #4b5563;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  text-align: justify; /* Alinhamento impecável */
+  margin-bottom: 1.5rem;
+}
+
+/* Sidebar de Benefícios */
+.detalhe-sidebar {
+  background-color: var(--branco);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  height: fit-content;
+}
+
+.detalhe-sidebar h3 {
+  font-size: 1.25rem;
+  color: var(--azul-profundo);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.beneficios-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.beneficio-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.beneficio-icon {
+  color: var(--laranja-destaque);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.beneficio-item span {
+  color: #4b5563;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Seção de Entregas / Resultados */
+.detalhe-entregas-section {
+  background-color: var(--branco);
+  padding: 5rem 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.entregas-title-box {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.entregas-title-box h2 {
+  font-size: 2rem;
+  color: var(--azul-profundo);
+  font-weight: 800;
+}
+
+.entregas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .entregas-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.entrega-card {
+  background-color: var(--bg-cinza-claro);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  border: 1px solid transparent;
+  transition: all 0.35s ease;
+}
+
+.entrega-card:hover {
+  background-color: var(--branco);
+  border-color: #4F46E5;
+  box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.08);
+  transform: translateY(-4px);
+}
+
+.entrega-card h4 {
+  font-size: 1.15rem;
+  color: var(--azul-profundo);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.entrega-card p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left; /* Alinhamento natural sugerido */
+}
+
+/* Seção de CTA Inferior com margem de respiro para o Footer */
+.detalhe-cta {
+  background-color: var(--azul-vibrante);
+  color: var(--branco);
+  text-align: center;
+  padding: 5rem 1.5rem;
+  margin-bottom: 4rem; /* ◄ ESPAÇO EXATO ANTES DO FOOTER */
+}
+
+.detalhe-cta h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.detalhe-cta p {
+  color: #e0e7ff;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+}
+
+.btn-detalhe-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--branco);
+  border: 1px solid var(--branco);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-detalhe-voltar:hover {
+  background-color: var(--branco);
+  color: var(--azul-vibrante);
+}
