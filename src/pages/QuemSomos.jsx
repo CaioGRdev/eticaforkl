@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './QuemSomos.css';
-import { Target, Eye, Heart, Sparkles, Handshake, Award, ArrowRight } from 'lucide-react';
+import { Target, Eye, Heart, Sparkles, Handshake, Award, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function QuemSomos() {
+  const imagensCarrossel = [
+    { src: '/quem_somos.jpg', alt: 'Equipe de estudantes Ética Jr.' },
+    { src: '/quem_somos1.jpg', alt: 'Membros da empresa em imersão' },
+    { src: '/quem_somos2.jpg', alt: 'Alunos' },
+    { src: '/quem_somos3.jpg', alt: 'Alunos' },
+    { src: '/quem_somos4.jpg', alt: 'Alunos' }
+  ];
+
+  const [indexAtual, setIndexAtual] = useState(0);
+  const [estaPausado, setEstaPausado] = useState(false);
+
+  const fotoAnterior = () => {
+    setIndexAtual((prev) => (prev === 0 ? imagensCarrossel.length - 1 : prev - 1));
+  };
+
+  const proximaFoto = () => {
+    setIndexAtual((prev) => (prev === imagensCarrossel.length - 1 ? 0 : prev + 1));
+  };
+
+  useEffect(() => {
+    if (estaPausado) return;
+
+    const intervalo = setInterval(() => {
+      proximaFoto();
+    }, 4000); 
+
+    return () => clearInterval(intervalo);
+  }, [indexAtual, estaPausado]);
+
   return (
     <div className="quemsomos-container">
       
@@ -19,13 +48,37 @@ export default function QuemSomos() {
           </p>
         </div>
         
+        {/* CARROSSEL INTELIGENTE COM AUTOPLAY */}
         <div className="image-wrapper animar-entrada delay-2">
           <div className="image-shadow"></div>
-          <img 
-            src="/quem_somos.jpg" 
-            alt="Equipe de estudantes" 
-            className="hero-img"
-          />
+          
+          <div 
+            className="carrossel-wrapper"
+            onMouseEnter={() => setEstaPausado(true)}
+            onMouseLeave={() => setEstaPausado(false)}
+          >
+            <img 
+              src={imagensCarrossel[indexAtual].src} 
+              alt={imagensCarrossel[indexAtual].alt} 
+              className="hero-img"
+            />
+
+            <button className="carrossel-btn btn-esquerda" onClick={fotoAnterior} aria-label="Foto anterior">
+              <ChevronLeft size={24} />
+            </button>
+            <button className="carrossel-btn btn-direita" onClick={proximaFoto} aria-label="Próxima foto">
+              <ChevronRight size={24} />
+            </button>
+            <div className="carrossel-dots">
+              {imagensCarrossel.map((_, index) => (
+                <span 
+                  key={index} 
+                  className={`dot ${index === indexAtual ? 'dot-ativo' : ''}`}
+                  onClick={() => setIndexAtual(index)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -45,7 +98,7 @@ export default function QuemSomos() {
         </div>
       </section>
 
-      {/* TRÍADE - MISSÃO, VISÃO E VALORES */}
+      {/* MISSÃO, VISÃO E VALORES */}
       <section className="triade-section">
         <div className="triade-grid">
           
@@ -58,7 +111,7 @@ export default function QuemSomos() {
               </div>
               <h3>Missão</h3>
               <p>
-                Oferecer serviços de consultoria personalizados e inovadores para nossos clientes, proporcionando crescimento pessoal e profissional para os alunos envolvidos.
+                Oferecer serviços de consultoria personalizados e inovadores para nossos clients, proporcionando crescimento pessoal e profissional para os alunos envolvidos.
               </p>
             </div>
           </div>
@@ -94,7 +147,7 @@ export default function QuemSomos() {
         </div>
       </section>
 
-      {/* 4. DIFERENCIAIS COMPETITIVOS */}
+      {/* DIFERENCIAIS COMPETITIVOS */}
       <section className="diferenciais-section animar-entrada delay-3">
         <div className="diferenciais-content">
           <h2 className="diferenciais-main-title">Diferenciais Competitivos</h2>
@@ -127,7 +180,7 @@ export default function QuemSomos() {
         </div>
       </section>
 
-      {/* 5. CTA FINAL */}
+      {/* CTA FINAL */}
       <section className="cta-section animar-entrada delay-3">
         <div className="cta-blur-1"></div>
         <div className="cta-blur-2"></div>
@@ -144,7 +197,6 @@ export default function QuemSomos() {
           </button>
         </div>
       </section>
-
     </div>
   );
 }
