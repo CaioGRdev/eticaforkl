@@ -50,15 +50,23 @@ export default function Servicos() {
   return (
     <div className="servicos-container">
       
-      {/* 1. HERO SECTION (BANNER SUPERIOR) */}
-      <section className="servicos-hero">
-        <div className="badge-servicos">Nossos Serviços</div>
-        <h1 className="servicos-hero-title">
-          Soluções que Geram <span>Resultados</span>
-        </h1>
-        <p className="servicos-hero-desc">
-          Descubra como podemos ajudar o seu negócio a crescer.
-        </p>
+      {/* 1. HERO SECTION (BANNER SUPERIOR COM ANIMAÇÃO DE ÁGUA) */}
+      <section className="servicos-hero hero-solucoes-container">
+        
+        {/* Elementos visuais do fundo animado em tons de azul */}
+        <div className="water-horizontal-bg" />
+        <div className="hero-solucoes-overlay" />
+
+        {/* Conteúdo sobreposto de forma segura */}
+        <div className="relative-content-hero">
+          <div className="badge-servicos">Nossos Serviços</div>
+          <h1 className="servicos-hero-title">
+            Soluções que Geram <span>Resultados</span>
+          </h1>
+          <p className="servicos-hero-desc">
+            Descubra como podemos ajudar o seu negócio a crescer.
+          </p>
+        </div>
       </section>
 
       {/* 2. GRID PRINCIPAL DE SERVIÇOS */}
@@ -74,7 +82,6 @@ export default function Servicos() {
                 <p>{servico.descricao}</p>
               </div>
               
-              {/* O Link aponta para uma página dedicada do serviço */}
               <Link to={`/servicos/${servico.id}`} className="btn-saber-mais">
                 Saber Mais <ArrowRight />
               </Link>

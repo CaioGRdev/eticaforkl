@@ -136,7 +136,7 @@ export default function Footer() {
           <div>
             <iframe
               title="Localização"
-              src="https://www.google.com/maps/embed?pb=!1m18..."
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3628.556783!2d-44.456240!3d-22.465580!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bda55b97d5d5d5d%3A0xc5c5c5c5c5c5c5c5!2sUERJ%20Resende%20-%20Rod.%20Presidente%20Dutra%2C%20Resende%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1234567890"
               width="100%"
               height="250"
               loading="lazy"

@@ -6,3 +6,39 @@
   --color-orange: #FF935E;
   --color-text-light: #FFFFFF;
 }
+
+/* Animação de fade-in discreto */
+@keyframes discreteFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-discrete-fade-in {
+  animation: discreteFadeIn 1s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
