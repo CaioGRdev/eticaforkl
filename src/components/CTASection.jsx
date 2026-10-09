@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import { NavLink } from "react-router-dom";
 
 export default function CTASection() {
   return (
@@ -15,8 +16,10 @@ export default function CTASection() {
             sua empresa a alcançar novos resultados.
           </p>
 
-          <button
+          <NavLink
+            to="/contato"
             className="
+              inline-block
               mt-10
               bg-[#FF935E]
               text-white
@@ -32,7 +35,7 @@ export default function CTASection() {
             "
           >
             Solicitar atendimento
-          </button>
+          </NavLink>
 
         </div>
       </Reveal>
